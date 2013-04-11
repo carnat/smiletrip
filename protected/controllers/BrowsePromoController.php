@@ -4,17 +4,17 @@ class BrowsePromoController extends Controller
 {
 	public function actionIndex()
 	{
-            $TypeID = $_GET['id'];
+            $promotionid = $_GET['id'];
             
             $data['promotion'] = Promotion::model()->findAllByAttributes(
-                    array('PlaceID' => $PlaceID)
+                    array('promotion_id' => $promotionid)
                      );
             
 		$this->render('index',$data);
                 
 	}
         public function actionPromotion(){
-            $placeid=  $_GET['id'];
+            $promotionid=  $_GET['id'];
             $data['promotion'] = Promotion::model()->findByAttributes(
                     array('promotion_id'=>$promotionid)
                     );
