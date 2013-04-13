@@ -6,8 +6,12 @@
 <img src="<?=$place['picture']?>" />
 <h4> <?=$place['description'] ?></h4>
 <h5><?=$place['Address'] ?></h5>
+<div class="clearfix">
 <?php
-
+$this->widget('CStarRating',array('name'=>'rating'));
+?>
+</div>
+<?php
 Yii::import('application.extensions.EGMap.*');
 
 $gMap = new EGMap();
