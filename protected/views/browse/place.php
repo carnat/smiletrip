@@ -8,7 +8,7 @@
 <h5><?=$place['Address'] ?></h5>
 <div class="clearfix">
 <?php
-$this->widget('CStarRating',array('name'=>'rating'));
+//$this->widget('CStarRating',array('name'=>'rating'));
 ?>
 </div>
 <?php
