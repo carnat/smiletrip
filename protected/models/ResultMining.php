@@ -9,6 +9,7 @@
  * @property string $recommend_time_in_year
  * @property string $recommend_item
  * @property string $age
+ * @property string $recommend_cost
  */
 class ResultMining extends CActiveRecord
 {
@@ -38,11 +39,12 @@ class ResultMining extends CActiveRecord
 		// NOTE: you should only define rules for those attributes that
 		// will receive user inputs.
 		return array(
-			array('nationality, recommend_place, recommend_time_in_year, recommend_item, age', 'required'),
+			array('nationality, recommend_place, recommend_time_in_year, recommend_item, age, recommend_cost', 'required'),
 			array('nationality, recommend_place, recommend_time_in_year, recommend_item, age', 'length', 'max'=>100),
+			array('recommend_cost', 'length', 'max'=>50),
 			// The following rule is used by search().
 			// Please remove those attributes that should not be searched.
-			array('nationality, recommend_place, recommend_time_in_year, recommend_item, age', 'safe', 'on'=>'search'),
+			array('nationality, recommend_place, recommend_time_in_year, recommend_item, age, recommend_cost', 'safe', 'on'=>'search'),
 		);
 	}
 
@@ -68,6 +70,7 @@ class ResultMining extends CActiveRecord
 			'recommend_time_in_year' => 'Recommend Time In Year',
 			'recommend_item' => 'Recommend Item',
 			'age' => 'Age',
+			'recommend_cost' => 'Recommend Cost',
 		);
 	}
 
@@ -87,6 +90,7 @@ class ResultMining extends CActiveRecord
 		$criteria->compare('recommend_time_in_year',$this->recommend_time_in_year,true);
 		$criteria->compare('recommend_item',$this->recommend_item,true);
 		$criteria->compare('age',$this->age,true);
+		$criteria->compare('recommend_cost',$this->recommend_cost,true);
 
 		return new CActiveDataProvider($this, array(
 			'criteria'=>$criteria,

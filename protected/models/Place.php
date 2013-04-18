@@ -12,6 +12,8 @@
  * @property string $image
  * @property string $description
  * @property string $picture
+ * @property double $latitude
+ * @property double $longtitude
  */
 class Place extends CActiveRecord
 {
@@ -41,13 +43,14 @@ class Place extends CActiveRecord
 		// NOTE: you should only define rules for those attributes that
 		// will receive user inputs.
 		return array(
-			array('Name, Address, PlaceID, TypeID, detail, image, description, picture', 'required'),
+			array('Name, Address, PlaceID, TypeID, detail, image, description, picture, latitude, longtitude', 'required'),
 			array('PlaceID, TypeID', 'numerical', 'integerOnly'=>true),
+			array('latitude, longtitude', 'numerical'),
 			array('Name, Address', 'length', 'max'=>100),
 			array('detail, image, description, picture', 'length', 'max'=>200),
 			// The following rule is used by search().
 			// Please remove those attributes that should not be searched.
-			array('Name, Address, PlaceID, TypeID, detail, image, description, picture', 'safe', 'on'=>'search'),
+			array('Name, Address, PlaceID, TypeID, detail, image, description, picture, latitude, longtitude', 'safe', 'on'=>'search'),
 		);
 	}
 
@@ -76,6 +79,8 @@ class Place extends CActiveRecord
 			'image' => 'Image',
 			'description' => 'Description',
 			'picture' => 'Picture',
+			'latitude' => 'Latitude',
+			'longtitude' => 'Longtitude',
 		);
 	}
 
@@ -98,6 +103,8 @@ class Place extends CActiveRecord
 		$criteria->compare('image',$this->image,true);
 		$criteria->compare('description',$this->description,true);
 		$criteria->compare('picture',$this->picture,true);
+		$criteria->compare('latitude',$this->latitude);
+		$criteria->compare('longtitude',$this->longtitude);
 
 		return new CActiveDataProvider($this, array(
 			'criteria'=>$criteria,

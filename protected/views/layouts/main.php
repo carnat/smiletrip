@@ -46,10 +46,24 @@
 
 	<?php echo $content; ?>
 
+                
+    
+                
+<?php
+$this->breadcrumbs=array(
+	'Message'=>array('message/index'),
+	'HelloWorld',
+);?>
+<h1>Hello World!</h1>
+
+
+
+
+                
 	<div class="clear"></div>
 
 	<div id="footer">
-		Copyright &copy; <?php echo date('Y'); ?> by SmileTrip.<br/>
+		Copyright &copy; <?php echo date('Y'); ?> by SmileTriptanabordeeallyswwwm.<br/>
 		All Rights Reserved.<br/>
 		<?php echo Yii::powered(); ?>
 	</div><!-- footer -->

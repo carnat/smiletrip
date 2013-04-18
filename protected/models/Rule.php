@@ -5,7 +5,10 @@
  *
  * The followings are the available columns in table 'rule':
  * @property string $antecedent
+ * @property integer $antecedent_num
  * @property string $consequent
+ * @property integer $consequent_num
+ * @property string $confident
  */
 class Rule extends CActiveRecord
 {
@@ -35,11 +38,13 @@ class Rule extends CActiveRecord
 		// NOTE: you should only define rules for those attributes that
 		// will receive user inputs.
 		return array(
-			array('antecedent, consequent', 'required'),
+			array('antecedent, antecedent_num, consequent, consequent_num, confident', 'required'),
+			array('antecedent_num, consequent_num', 'numerical', 'integerOnly'=>true),
 			array('antecedent, consequent', 'length', 'max'=>100),
+			array('confident', 'length', 'max'=>10),
 			// The following rule is used by search().
 			// Please remove those attributes that should not be searched.
-			array('antecedent, consequent', 'safe', 'on'=>'search'),
+			array('antecedent, antecedent_num, consequent, consequent_num, confident', 'safe', 'on'=>'search'),
 		);
 	}
 
@@ -61,7 +66,10 @@ class Rule extends CActiveRecord
 	{
 		return array(
 			'antecedent' => 'Antecedent',
+			'antecedent_num' => 'Antecedent Num',
 			'consequent' => 'Consequent',
+			'consequent_num' => 'Consequent Num',
+			'confident' => 'Confident',
 		);
 	}
 
@@ -77,7 +85,10 @@ class Rule extends CActiveRecord
 		$criteria=new CDbCriteria;
 
 		$criteria->compare('antecedent',$this->antecedent,true);
+		$criteria->compare('antecedent_num',$this->antecedent_num);
 		$criteria->compare('consequent',$this->consequent,true);
+		$criteria->compare('consequent_num',$this->consequent_num);
+		$criteria->compare('confident',$this->confident,true);
 
 		return new CActiveDataProvider($this, array(
 			'criteria'=>$criteria,

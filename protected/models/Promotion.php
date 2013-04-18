@@ -4,8 +4,10 @@
  * This is the model class for table "promotion".
  *
  * The followings are the available columns in table 'promotion':
- * @property string $Detail
- * @property integer $PalceID
+ * @property string $detail
+ * @property integer $PlaceID
+ * @property integer $promotion_id
+ * @property string $promotion_picture
  */
 class Promotion extends CActiveRecord
 {
@@ -35,12 +37,12 @@ class Promotion extends CActiveRecord
 		// NOTE: you should only define rules for those attributes that
 		// will receive user inputs.
 		return array(
-			array('Detail, PalceID', 'required'),
-			array('PalceID', 'numerical', 'integerOnly'=>true),
-			array('Detail', 'length', 'max'=>100),
+			array('detail, PlaceID, promotion_picture', 'required'),
+			array('PlaceID', 'numerical', 'integerOnly'=>true),
+			array('detail, promotion_picture', 'length', 'max'=>100),
 			// The following rule is used by search().
 			// Please remove those attributes that should not be searched.
-			array('Detail, PalceID', 'safe', 'on'=>'search'),
+			array('detail, PlaceID, promotion_id, promotion_picture', 'safe', 'on'=>'search'),
 		);
 	}
 
@@ -61,8 +63,10 @@ class Promotion extends CActiveRecord
 	public function attributeLabels()
 	{
 		return array(
-			'Detail' => 'Detail',
-			'PalceID' => 'Palce',
+			'detail' => 'Detail',
+			'PlaceID' => 'Place',
+			'promotion_id' => 'Promotion',
+			'promotion_picture' => 'Promotion Picture',
 		);
 	}
 
@@ -77,8 +81,10 @@ class Promotion extends CActiveRecord
 
 		$criteria=new CDbCriteria;
 
-		$criteria->compare('Detail',$this->Detail,true);
-		$criteria->compare('PalceID',$this->PalceID);
+		$criteria->compare('detail',$this->detail,true);
+		$criteria->compare('PlaceID',$this->PlaceID);
+		$criteria->compare('promotion_id',$this->promotion_id);
+		$criteria->compare('promotion_picture',$this->promotion_picture,true);
 
 		return new CActiveDataProvider($this, array(
 			'criteria'=>$criteria,

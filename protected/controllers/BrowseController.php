@@ -9,6 +9,7 @@ class BrowseController extends Controller
             $data['place'] = Place::model()->findAllByAttributes(
                     array('TypeID' => $TypeID)
                      );
+            
 		$this->render('index',$data);
                 
 	}

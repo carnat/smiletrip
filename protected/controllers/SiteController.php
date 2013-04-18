@@ -29,7 +29,8 @@ class SiteController extends Controller
 	{
 		// renders the view file 'protected/views/site/index.php'
 		// using the default layout 'protected/views/layouts/main.php'
-		$this->render('index');
+            echo $_GET['id'];
+            $this->render('index');
 	}
 
 	/**
@@ -45,7 +46,8 @@ class SiteController extends Controller
 				$this->render('error', $error);
 		}
 	}
-
+        
+ 
 	/**
 	 * Displays the contact page
 	 */

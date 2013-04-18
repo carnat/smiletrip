@@ -9,6 +9,7 @@
  * @property integer $PlaceID
  * @property integer $Month
  * @property integer $Year
+ * @property integer $visit_id
  */
 class Visit extends CActiveRecord
 {
@@ -42,7 +43,7 @@ class Visit extends CActiveRecord
 			array('MemberID, PlaceID, Month, Year', 'numerical', 'integerOnly'=>true),
 			// The following rule is used by search().
 			// Please remove those attributes that should not be searched.
-			array('Date, MemberID, PlaceID, Month, Year', 'safe', 'on'=>'search'),
+			array('Date, MemberID, PlaceID, Month, Year, visit_id', 'safe', 'on'=>'search'),
 		);
 	}
 
@@ -68,6 +69,7 @@ class Visit extends CActiveRecord
 			'PlaceID' => 'Place',
 			'Month' => 'Month',
 			'Year' => 'Year',
+			'visit_id' => 'Visit',
 		);
 	}
 
@@ -87,6 +89,7 @@ class Visit extends CActiveRecord
 		$criteria->compare('PlaceID',$this->PlaceID);
 		$criteria->compare('Month',$this->Month);
 		$criteria->compare('Year',$this->Year);
+		$criteria->compare('visit_id',$this->visit_id);
 
 		return new CActiveDataProvider($this, array(
 			'criteria'=>$criteria,
