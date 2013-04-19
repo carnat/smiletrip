@@ -44,7 +44,7 @@ $this->pageTitle=Yii::app()->name;
 		background: url(images8/read_more.gif) no-repeat;
 		text-indent: -3000px;
 		margin:0 auto;
-		width:50px;
+		width:60px;
 	}
     #gridview li a:hover{
 		background: url(images8/read_more_hover.gif) no-repeat;
