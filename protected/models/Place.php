@@ -17,6 +17,7 @@
  */
 class Place extends CActiveRecord
 {
+        public $image;
 	/**
 	 * Returns the static model of the specified AR class.
 	 * @param string $className active record class name.
@@ -43,14 +44,16 @@ class Place extends CActiveRecord
 		// NOTE: you should only define rules for those attributes that
 		// will receive user inputs.
 		return array(
-			array('Name, Address, PlaceID, TypeID, detail, image, description, picture, latitude, longtitude', 'required'),
+			array('Name, Address, TypeID, detail, description, latitude, longtitude', 'required'),
 			array('PlaceID, TypeID', 'numerical', 'integerOnly'=>true),
 			array('latitude, longtitude', 'numerical'),
 			array('Name, Address', 'length', 'max'=>100),
-			array('detail, image, description, picture', 'length', 'max'=>200),
+			array('detail, description', 'length', 'max'=>200),
 			// The following rule is used by search().
 			// Please remove those attributes that should not be searched.
-			array('Name, Address, PlaceID, TypeID, detail, image, description, picture, latitude, longtitude', 'safe', 'on'=>'search'),
+			array('Name, Address, PlaceID, TypeID, detail, image, description, latitude, longtitude', 'safe', 'on'=>'search'),
+                        array('image', 'unsafe'), //in order to can update the record without upload the file again when is not necessary
+                        array('image', 'file', 'types'=>'jpg, gif, png'),  //validate the file extension
 		);
 	}
 
