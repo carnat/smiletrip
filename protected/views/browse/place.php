@@ -3,7 +3,7 @@
 
 <h1> <?=$place['Name'] ?></h1>
 
-<img src="<?=$place['picture']?>" />
+<img src="<?=$place['image']?>" />
 <h4> <?=$place['description'] ?></h4>
 <h5><?=$place['Address'] ?></h5>
 <div class="clearfix">

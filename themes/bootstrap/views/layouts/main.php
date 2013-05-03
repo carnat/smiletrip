@@ -50,7 +50,7 @@
     ),
 )); */ ?>>
 <!old code end>
-
+<?php //$this->widget('application.extensions.search.GoogleSearch'); ?>
 <!teststart>
  <?php $this->widget('bootstrap.widgets.TbNavbar', array(
     'type'=>'inverse', // null or 'inverse'
@@ -78,7 +78,7 @@
             ),
         ),
         
-        '<form class="navbar-search pull-left" ,form method="get" action="http://google.co.th/search"><input type="text" class="search-query span2" placeholder="Search" value=""></form>',
+        '<form class="navbar-search pull-left" ,form method="get" action="SearchTrail.php"><input type="text" class="search-query span2" placeholder="Search" value=""></form>',
         array(
             'class'=>'bootstrap.widgets.TbMenu',
             'htmlOptions'=>array('class'=>'pull-right'),
