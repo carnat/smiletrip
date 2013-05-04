@@ -5956,7 +5956,7 @@ a.badge:focus {
 }
 
 .accordion-inner {
-  padding: 9px 15px;
+  padding: 49px 15px;
   border-top: 1px solid #e5e5e5;
 }
 
@@ -6075,7 +6075,7 @@ a.badge:focus {
   height: 10px;
   margin-left: 5px;
   text-indent: -999px;
-  background-color: #ccc;
+  background-color: #ccc; 
   background-color: rgba(255, 255, 255, 0.25);
   border-radius: 5px;
 }

@@ -19,6 +19,7 @@ return array(
         'application.modules.user.components.*',
         
     ),
+   
     'modules' => array(     
         // uncomment the following to enable the Gii tool
 
@@ -28,7 +29,7 @@ return array(
             // If removed, Gii defaults to localhost only. Edit carefully to taste.
             'ipFilters' => array($_SERVER['REMOTE_ADDR']),
             'generatorPaths' => array(
-                'bootstrap.gii',        
+                'bootstrap.gii',  
             'user'=>array(
             # encrypting method (php hash function)
             'hash' => 'md5',
@@ -59,7 +60,7 @@ return array(
  
             # page after logout
             'returnLogoutUrl' => array('/user/login'),
-      ),    
+      ),   
             ),
                  ),
                      ),
@@ -95,6 +96,7 @@ return array(
             'charset' => 'utf8',
             'enableProfiling' => true,
             'enableParamLogging' => true,
+            
         ),
         'errorHandler' => array(
             // use 'site/error' action to display errors

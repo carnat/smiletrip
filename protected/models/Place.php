@@ -9,15 +9,14 @@
  * @property integer $PlaceID
  * @property integer $TypeID
  * @property string $detail
- * @property string $image
+ * @property string $mobile_icon
  * @property string $description
- * @property string $picture
+ * @property string $image
  * @property double $latitude
  * @property double $longtitude
  */
 class Place extends CActiveRecord
 {
-        public $image;
 	/**
 	 * Returns the static model of the specified AR class.
 	 * @param string $className active record class name.
@@ -44,16 +43,15 @@ class Place extends CActiveRecord
 		// NOTE: you should only define rules for those attributes that
 		// will receive user inputs.
 		return array(
-			array('Name, Address, TypeID, detail, description, latitude, longtitude', 'required'),
-			array('PlaceID, TypeID', 'numerical', 'integerOnly'=>true),
+			array('Name, Address, TypeID, detail, mobile_icon, description, image, latitude, longtitude', 'required'),
+			array('TypeID', 'numerical', 'integerOnly'=>true),
 			array('latitude, longtitude', 'numerical'),
 			array('Name, Address', 'length', 'max'=>100),
-			array('detail, description', 'length', 'max'=>200),
+			array('detail, mobile_icon, image', 'length', 'max'=>200),
+			array('description', 'length', 'max'=>500),
 			// The following rule is used by search().
 			// Please remove those attributes that should not be searched.
-			array('Name, Address, PlaceID, TypeID, detail, image, description, latitude, longtitude', 'safe', 'on'=>'search'),
-                        array('image', 'unsafe'), //in order to can update the record without upload the file again when is not necessary
-                        array('image', 'file', 'types'=>'jpg, gif, png'),  //validate the file extension
+			array('Name, Address, PlaceID, TypeID, detail, mobile_icon, description, image, latitude, longtitude', 'safe', 'on'=>'search'),
 		);
 	}
 
@@ -79,9 +77,9 @@ class Place extends CActiveRecord
 			'PlaceID' => 'Place',
 			'TypeID' => 'Type',
 			'detail' => 'Detail',
-			'image' => 'Image',
+			'mobile_icon' => 'Mobile Icon',
 			'description' => 'Description',
-			'picture' => 'Picture',
+			'image' => 'Image',
 			'latitude' => 'Latitude',
 			'longtitude' => 'Longtitude',
 		);
@@ -103,9 +101,9 @@ class Place extends CActiveRecord
 		$criteria->compare('PlaceID',$this->PlaceID);
 		$criteria->compare('TypeID',$this->TypeID);
 		$criteria->compare('detail',$this->detail,true);
-		$criteria->compare('image',$this->image,true);
+		$criteria->compare('mobile_icon',$this->mobile_icon,true);
 		$criteria->compare('description',$this->description,true);
-		$criteria->compare('picture',$this->picture,true);
+		$criteria->compare('image',$this->image,true);
 		$criteria->compare('latitude',$this->latitude);
 		$criteria->compare('longtitude',$this->longtitude);
 

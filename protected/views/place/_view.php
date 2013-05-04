@@ -25,8 +25,8 @@
 	<?php echo CHtml::encode($data->detail); ?>
 	<br />
 
-	<b><?php echo CHtml::encode($data->getAttributeLabel('image')); ?>:</b>
-	<?php echo CHtml::encode($data->image); ?>
+	<b><?php echo CHtml::encode($data->getAttributeLabel('mobile_icon')); ?>:</b>
+	<?php echo CHtml::encode($data->mobile_icon); ?>
 	<br />
 
 	<b><?php echo CHtml::encode($data->getAttributeLabel('description')); ?>:</b>
@@ -34,8 +34,8 @@
 	<br />
 
 	<?php /*
-	<b><?php echo CHtml::encode($data->getAttributeLabel('picture')); ?>:</b>
-	<?php echo CHtml::encode($data->picture); ?>
+	<b><?php echo CHtml::encode($data->getAttributeLabel('image')); ?>:</b>
+	<?php echo CHtml::encode($data->image); ?>
 	<br />
 
 	<b><?php echo CHtml::encode($data->getAttributeLabel('latitude')); ?>:</b>

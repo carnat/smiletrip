@@ -37,8 +37,8 @@
 	</div>
 
 	<div class="row">
-		<?php echo $form->label($model,'image'); ?>
-		<?php echo $form->textField($model,'image',array('size'=>60,'maxlength'=>200)); ?>
+		<?php echo $form->label($model,'mobile_icon'); ?>
+		<?php echo $form->textField($model,'mobile_icon',array('size'=>60,'maxlength'=>200)); ?>
 	</div>
 
 	<div class="row">
@@ -47,8 +47,8 @@
 	</div>
 
 	<div class="row">
-		<?php echo $form->label($model,'picture'); ?>
-		<?php echo $form->textField($model,'picture',array('size'=>60,'maxlength'=>200)); ?>
+		<?php echo $form->label($model,'image'); ?>
+		<?php echo $form->textField($model,'image',array('size'=>60,'maxlength'=>200)); ?>
 	</div>
 
 	<div class="row">
