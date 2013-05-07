@@ -17,10 +17,10 @@ return array(
         'application.components.*',
         'application.modules.user.models.*',
         'application.modules.user.components.*',
-        
+        'application.modules.rights.*',
+        'application.modules.rights.components.*',
     ),
-   
-    'modules' => array(     
+    'modules' => array(
         // uncomment the following to enable the Gii tool
 
         'gii' => array(
@@ -29,52 +29,51 @@ return array(
             // If removed, Gii defaults to localhost only. Edit carefully to taste.
             'ipFilters' => array($_SERVER['REMOTE_ADDR']),
             'generatorPaths' => array(
-                'bootstrap.gii',  
-            'user'=>array(
+                'bootstrap.gii',
+            ),
+        ),
+        'user' => array(
             # encrypting method (php hash function)
             'hash' => 'md5',
- 
             # send activation email
             'sendActivationMail' => true,
- 
             # allow access for non-activated users
             'loginNotActiv' => false,
- 
             # activate user on registration (only sendActivationMail = false)
             'activeAfterRegister' => false,
- 
             # automatically login from registration
             'autoLogin' => true,
- 
             # registration path
             'registrationUrl' => array('/user/registration'),
- 
             # recovery password path
             'recoveryUrl' => array('/user/recovery'),
- 
             # login form path
             'loginUrl' => array('/user/login'),
- 
             # page after login
             'returnUrl' => array('/user/profile'),
- 
             # page after logout
             'returnLogoutUrl' => array('/user/login'),
-      ),   
-            ),
-                 ),
-                     ),
+        ),
+        'rights' => array(
+            'install' => true,
+        ),
+    ),
     // application components
     'components' => array(
         'bootstrap' => array(
             'class' => 'bootstrap.components.Bootstrap',
         ),
-        'user' => array(            
+        'user' => array(
             // enable cookie-based authentication
-            'class'=>'WebUser',
-            'allowAutoLogin' => true,    
+            'class' => 'RWebUser',
+            'allowAutoLogin' => true,
             'loginUrl' => array('/user/login'),
-            ),
+        ),
+        'authManager' => array(
+            'class' => 'RDbAuthManager',
+            'connectionID' => 'db',
+            'defaultRoles' => array('Authenticated', 'Guest'),
+        ),
         // uncomment the following to enable URLs in path-format
         'urlManager' => array(
             'urlFormat' => 'path',
@@ -96,7 +95,7 @@ return array(
             'charset' => 'utf8',
             'enableProfiling' => true,
             'enableParamLogging' => true,
-            
+            'tablePrefix' => 'tbl_',
         ),
         'errorHandler' => array(
             // use 'site/error' action to display errors

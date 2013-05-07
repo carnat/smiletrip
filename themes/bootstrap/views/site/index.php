@@ -1,8 +1,3 @@
-<?php
-/* @var $this SiteController */
-
-$this->pageTitle=Yii::app()->name;
-?>
 
 
 <!DOCTYPE html>
@@ -72,21 +67,44 @@ $this->pageTitle=Yii::app()->name;
     'heading'=>'Welcome to '.CHtml::encode(Yii::app()->name),
 )); ?>
 <!--testing code-->
-<?php 
+
+    
+      <?php
+        mysql_connect('localhost','zp7738' , 'senior');
+        mysql_select_db(zp7738_senior);
+        $res=mysql_query("select * from place" );
+        echo"<table>";
+        while ($row = mysql_fetch_array($res)) {
+     echo "<tr>";
+     echo "<td>" ?> <img src=" <?php echo $row["image"]; ?> " height="500" width="500"> <?php echo "</td>";
+}
+
+        ?>
+         
+         
+         
+         
+         
+    
+    
+    
+    
+    
+    <?php 
 
 $this->widget('bootstrap.widgets.TbCarousel', array(
     'items'=>array(
       /*  array('image'=>'http://placehold.it/770x400&text=First+thumbnail', 'label'=>'Second Thumbnail label', 'caption'=>'Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi po.', '<a href="http://www.google.co.th">click Moi</a>' ), */
-        array('image'=>'http://www.zp7738.tld.122.155.18.18.no-domain.name/smiletrip/images1/16x7PlaceQ.jpg', 'label'=>'Royal Palace of Thailand Kingdom', 'caption'=>'A complex of buildings at the heart of Bangkok, Thailand. The palace has been the official residence of the Kings of Siam since 1782.'),
+       
+        
+        array('image'=>'$res', 'label'=>'Royal Palace of Thailand Kingdom', 'caption'=>'A complex of buildings at the heart of Bangkok, Thailand. The palace has been the official residence of the Kings of Siam since 1782.'),
         array('image'=>'http://www.zp7738.tld.122.155.18.18.no-domain.name/smiletrip/images1/16x7EventQ.jpg', 'label'=>'The Siam Niramit Show', 'caption'=>'Takes you on a journey to the enchanted Kingdom of Siam showing you spectacular highlights from Siam glorious past and history'),
         array('image'=>'http://www.zp7738.tld.122.155.18.18.no-domain.name/smiletrip/images1/16x7PromotionQ.jpg' , 'label'=>'Phad-Thai', 'caption'=>'Dish of stir-fried Pho noodles, with eggs, fish sauce, tamarind juice, red chili pepper, plus any combination of bean sprouts, shrimp, chicken '),
  
         ),
 ));?>
 
-<?php
 
-?>
 <!--testing code end-->
 <!--<p>Congratulations! You have successfully created your Yii application.</p>-->
 
